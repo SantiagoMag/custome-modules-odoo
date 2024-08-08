@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_lead_line_bussiness,crm.lead.line.bussiness,model_crm_lead_line_bussiness,base.group_user,1,0,0,0
+access_crm_lead_line_bussiness_manager,crm.lead.line.bussiness,model_crm_lead_line_bussiness,sales_team.group_sale_manager,1,1,1,1
+access_crm_lead_line_service,crm.lead.line.service,model_crm_lead_line_service,base.group_user,1,0,0,0
+access_crm_lead_line_service_manager,crm.lead.line.service,model_crm_lead_line_service,sales_team.group_sale_manager,1,1,1,1
+access_crm_lead_unit_service,crm.lead.unit.service,model_crm_lead_unit_service,base.group_user,1,0,0,0
+access_crm_lead_unit_service_manager,crm.lead.unit.service,model_crm_lead_unit_service,sales_team.group_sale_manager,1,1,1,1

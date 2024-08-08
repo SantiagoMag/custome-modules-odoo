@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- CRM LEAD LINE BUSSINESS -->
+
+    <record id="crm_lead_line_bussiness_tree" model="ir.ui.view">
+        <field name="name">crm.lead.line.bussiness.tree</field>
+        <field name="model">crm.lead.line.bussiness</field>
+        <field name="arch" type="xml">
+            <tree string="Linea de Negocio" multi_edit="1">
+                <field name="name"/>
+                <field name="line_service_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_lead_line_bussiness_view_form" model="ir.ui.view">
+        <field name="name">crm.lead.line.bussiness.form</field>
+        <field name="model">crm.lead.line.bussiness</field>
+        <field name="arch" type="xml">
+            <form class="o_lead_opportunity_form" js_class="crm_form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="line_service_ids" widget="section_and_note_one2many" mode="tree">
+                            <form>
+                                <field name="name" />
+                            </form>
+                            <tree editable="bottom">
+                                <field name="name" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="crm_lead_line_bussiness_action" model="ir.actions.act_window">
+        <field name="name">Linea de Negocio</field>
+        <field name="res_model">crm.lead.line.bussiness</field>
+        <field name="view_id" ref="dev01_crm.crm_lead_line_bussiness_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data found!
+            </p><p>
+            </p>
+        </field>
+    </record>
+
+
+    <!-- CRM LEAD UNIT SERVICE -->
+
+    <record id="crm_lead_unit_service_tree" model="ir.ui.view">
+        <field name="name">crm.lead.unit.service.tree</field>
+        <field name="model">crm.lead.unit.service</field>
+        <field name="arch" type="xml">
+            <tree string="Unidad de Servicio" multi_edit="1">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_lead_unit_service_action" model="ir.actions.act_window">
+        <field name="name">Unidad de Negocio</field>
+        <field name="res_model">crm.lead.unit.service</field>
+        <field name="view_id" ref="dev01_crm.crm_lead_unit_service_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data found!
+            </p><p>
+            </p>
+        </field>
+    </record>
+
+    <!-- MENU ITEM -->
+
+    <menuitem
+        id="menu_crm_lead_line_bussiness"
+        name="Linea de Negocio"
+        parent="crm.menu_crm_config_lead"
+        action="dev01_crm.crm_lead_line_bussiness_action"
+        sequence="7"
+        />
+
+    <menuitem
+        id="menu_crm_lead_unit_service"
+        name="Unidad de Negocio"
+        parent="crm.menu_crm_config_lead"
+        action="dev01_crm.crm_lead_unit_service_action"
+        sequence="8"
+        />
+
+</odoo>
