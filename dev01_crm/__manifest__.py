@@ -7,7 +7,7 @@
     'category': "Sales/CRM Extension",
     'description': """
     """,
-    'depends': ['crm', 'web_cohort', 'web_map','sale_crm','base','sales_team'],
+    'depends': ['crm', ],
     'data': [
         'security/ir.model.access.csv',
         'views/crm_lead_views.xml',
