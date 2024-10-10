@@ -1,0 +1,57 @@
+<odoo>
+    <record id="view_form_credit_risk_model" model="ir.ui.view">
+        <field name="name">credit.risk.model.form</field>
+        <field name="model">credit.risk.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_check_loan_eligibility" type="object" string="Comprobar Cumplimiento del Préstamo" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Información Personal">
+                        
+                            <field name="name"/>
+                            <field name="person_age"/>
+                            <field name="person_income"/>
+                            <field name="person_home_ownership"/>
+                            <field name="person_emp_length"/>
+                        </group>
+                        <group string="Información Crediticia">
+                            <field name="cb_person_default_on_file"/>
+                            <field name="cb_person_cred_hist_length"/>
+                        </group>
+                        <group string="Información Préstamo">
+                            <field name="loan_intent"/>
+                            <field name="loan_grade"/>
+                            <field name="loan_amnt"/>
+                            <field name="loan_int_rate"/>
+                            <field name="loan_percent_income"/>
+                        </group>
+                        <group string="Estado Deuda">
+                            <field name="loan_status"/>
+                            <field name="loan_prediction"/>
+                            <field name="loan_probability"/>
+                        </group>
+
+                    </group>
+                    
+                <group string="Información Adicional">
+                    <field name="description"/>
+                </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_credit_risk_model" model="ir.ui.view">
+        <field name="name">credit.risk.model.tree</field>
+        <field name="model">credit.risk.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
