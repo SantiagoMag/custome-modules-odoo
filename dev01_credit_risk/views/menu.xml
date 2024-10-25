@@ -12,6 +12,4 @@
         name="Credit Risk Models"
         parent="main_credit_risk_menu"
         action="dev01_credit_risk.action_credit_risk_model"/>
-
-
 </odoo>

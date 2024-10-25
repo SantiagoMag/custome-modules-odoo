@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.form.credit.risk</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Riesgo Crediticio ML" data-string="Riesgo Crediticio" name="credit_risk_management_models" >
+                    <block title="Configuración de Conexión H2O Driverless" name="credit_risk_setting_container">
+                        <setting string="Dirección URL"  id="h2o_driverless_setting_address">
+                            <field name="h2o_driverless_address"/>
+                        </setting>
+                        <setting string="Username"  id="h2o_driverless_setting_username">
+                            <field name="h2o_driverless_username"/>
+                        </setting>
+                        <setting string="Password"  id="h2o_driverless_setting_password">
+                            <field name="h2o_driverless_password"/>
+                        </setting>
+                        <setting string="Nombre Experimento"  id="h2o_driverless_setting_name_experiment">
+                            <field name="h2o_driverless_name_experiment"/>
+                        </setting>
+                    </block>
+                    <block title="Configuración de Conexión VM" name="credit_risk_setting_container_vm">
+                        <setting string="API URL"  id="api_vm_setting_url">
+                            <field name="api_vm_url"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_credit_risk_config_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="res_config_settings_view_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'credit_risk_management_models', 'bin_size': False}</field>
+    </record>
+
+
+    <menuitem id="credit_risk_module_settings_menu" 
+        name="Credit Risk Module Settings" 
+        parent="base.menu_config" 
+        action="dev01_credit_risk.action_credit_risk_config_settings"
+        groups="base.group_system"/>
+
+        
+    <menuitem 
+        id="submenu_credit_risk_model_settings" 
+        name="Settings"
+        parent="main_credit_risk_menu"
+        action="dev01_credit_risk.action_credit_risk_config_settings"/>
+
+
+</odoo>
